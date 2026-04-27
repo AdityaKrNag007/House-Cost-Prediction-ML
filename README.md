@@ -27,20 +27,16 @@ Kaggle - House Prices: Advanced Regression Techniques
 - Test set → final evaluation (kept untouched)
 
 ## Models Used
-- Linear Regression
 - Random Forest Regressor
 
 ## Results
 
 | Model | MAE |
 |------|------|
-| Linear Regression | ~23162 |
-| Random Forest | ~18816 |
 | Validation MAE (RF) | ~19603 |
 | Test MAE (RF) | ~19262 |
 
 ## Key Improvements
-- Feature engineering significantly reduced error (~21k → ~18.8k)
 - Added validation set to ensure unbiased model tuning
 - Maintained separation of test data for reliable evaluation
 
