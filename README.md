@@ -10,7 +10,7 @@ Kaggle - House Prices: Advanced Regression Techniques
 
 ### Data Processing
 - Selected key numerical features (area, rooms, garage, quality)
-- Handled missing values using median imputation
+- dropped missing values 
 
 ### Feature Engineering
 - Created derived features:
