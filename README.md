@@ -1,33 +1,53 @@
-# House Price Prediction (Advanced)
+# House Price Prediction (Advanced with Validation)
 
 ## Objective
-Predict house prices using regression models and improve performance through feature engineering and model comparison.
+Predict house prices using regression models and build a reliable evaluation pipeline.
 
 ## Dataset
 Kaggle - House Prices: Advanced Regression Techniques
 
 ## Approach
-- Selected multiple numerical features (area, rooms, garage, quality)
+
+### Data Processing
+- Selected key numerical features (area, rooms, garage, quality)
 - Handled missing values using median imputation
-- Performed feature engineering (HouseAge, TotalSF, TotalRooms)
-- Added high-impact features (OverallQual, GarageCars)
-- Split data into training and testing sets
+
+### Feature Engineering
+- Created derived features:
+  - HouseAge = CurrentYear - YearBuilt
+  - TotalSF = 1stFlrSF + 2ndFlrSF
+  - TotalRooms = TotalRooms + Bedrooms
+- Added high-impact features:
+  - OverallQual
+  - GarageCars
+
+### Data Splitting (Important)
+- Train set → model training  
+- Validation set → model tuning  
+- Test set → final evaluation (kept untouched)
 
 ## Models Used
 - Linear Regression
 - Random Forest Regressor
 
 ## Results
-- Linear Regression MAE: ~23162
-- Random Forest MAE: ~18816
-- Tuned Random Forest MAE: ~18914
+
+| Model | MAE |
+|------|------|
+| Linear Regression | ~23162 |
+| Random Forest | ~18816 |
+| Validation MAE (RF) | ~19603 |
+| Test MAE (RF) | ~19262 |
 
 ## Key Improvements
-- Feature engineering had the biggest impact on performance
-- Adding domain-relevant features significantly reduced error (~21k → ~18.8k)
-- Model tuning gave smaller gains compared to feature improvements
+- Feature engineering significantly reduced error (~21k → ~18.8k)
+- Added validation set to ensure unbiased model tuning
+- Maintained separation of test data for reliable evaluation
 
 ## Key Learnings
-- Random Forest handles non-linear relationships better than Linear Regression
-- Not all feature engineering is useful — quality of features matters
-- Real performance gains come from better data representation, not just tuning
+- Feature quality impacts performance more than hyperparameter tuning
+- Random Forest captures non-linear relationships effectively
+- Proper evaluation (train/validation/test split) is critical for trustworthy models
+
+## Conclusion
+Built a robust regression pipeline with reliable evaluation, demonstrating strong generalization performance on unseen data.
